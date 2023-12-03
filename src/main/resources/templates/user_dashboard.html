@@ -8,6 +8,21 @@
         </ul>
     </body>
     <script>
-        // 이곳에 코드를 구현하십시오.
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/api/v1/data/list', {
+                method: 'GET'
+            })
+                .then(response => response.json())
+                .then(dataList => {
+                    const dataListElement = document.getElementById('dataList');
+
+                    dataList.forEach(data => {
+                        let listItem = document.createElement('li');
+                        listItem.textContent = data.text;
+                        dataListElement.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
     </script>
 </html>

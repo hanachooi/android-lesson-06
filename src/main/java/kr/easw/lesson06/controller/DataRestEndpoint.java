@@ -1,5 +1,4 @@
 package kr.easw.lesson06.controller;
-
 import kr.easw.lesson06.model.dto.ExceptionalResultDto;
 import kr.easw.lesson06.model.dto.TextDataDto;
 import kr.easw.lesson06.model.dto.UserAuthenticationDto;
@@ -10,10 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 import java.util.Map;
-
 // @RestController 어노테이션을 사용하여 이 클래스가 REST 컨트롤러임을 선언합니다.
 @RestController
 // @RequestMapping 어노테이션을 사용하여 이 클래스의 기반 엔드포인트를 /api/v1/data로 설정합니다.
@@ -22,10 +19,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class DataRestEndpoint {
     private final TextDataService textDataService;
-
     // 이 메서드의 엔드포인트를 /api/v1/data/list로 설정합니다. GET만 허용됩니다.
     @GetMapping("/list")
     public List<TextDataDto> listText() {
+        System.out.println("Mapping Success!!");
         return textDataService.listText();
     }
 }
